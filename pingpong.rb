@@ -1,6 +1,5 @@
 require 'httparty'
 require 'sinatra'
-require 'yaml'
 
 conf = YAML.load(File.open('config.yml'))
 
