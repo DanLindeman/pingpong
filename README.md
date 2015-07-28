@@ -27,4 +27,4 @@ initiator: false
 ```
 
 Run pingpong on 10.10.10.11 first, then run pingpong on 10.10.10.10
-
+```ruby pingpong.rb```
