@@ -29,10 +29,14 @@ password: password
 
 Run pingpong on both machines, passing Sinatra their IP address
 *On 10.10.10.10:*
-```ruby pingpong.rb -o 10.10.10.10```
+```
+ruby pingpong.rb -o 10.10.10.10
+```
 
 *On 10.10.10.11:*
-```ruby pingpong.rb -o 10.10.10.11```
+```
+ruby pingpong.rb -o 10.10.10.11
+```
 
 The dominoes are set. Now all that is required is tipping the first one.
 
@@ -40,15 +44,11 @@ Make a POST request to either server, I use the Firefox extension RESTCLient, ot
 
 Watch the madness unfold.
 
-
-
-
-
-
-
 If madness does _not_ unfold, you may need to disable the firewall on both machines.
 To check if the sinatra servers are running you could attempt to visit them with a browser.
 
-```http://10.10.10.10:4567/hi```
+```
+http://10.10.10.10:4567/hi
+```
 
 If you see a "Sinatra doesn't know this ditty" the server is publicly available.
