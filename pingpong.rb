@@ -3,7 +3,7 @@ require 'sinatra'
 
 conf = YAML.load(File.open('config.yml'))
 
-BASE_URI = "#{conf['opponent']}:4567/ping"
+BASE_URI = "http://#{conf['opponent']}:4567/ping"
 AUTH = { username: conf['username'], password: conf['password'] }
 
 def pong
@@ -13,11 +13,14 @@ def pong
                      key2: 'value2',
                      key3: 'value3' })
   options = { headers: headers, body: body, basic_auth: AUTH,  verify: false }
-  results = HTTParty.post(BASE_URI, options)
+  begin
+    results = HTTParty.post(BASE_URI, options)
+  rescue Net::ReadTimeout
+    nil
+  end
 end
 
-pong if conf['initiator'] == true
-
 post '/ping' do
+  sleep 5
   pong
 end
